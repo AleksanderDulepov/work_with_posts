@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="/static/styles/style.css">
+</head>
+<body>
+<main>
+    <h1>Поиск постов</h1>
+    <form action="/search" method="get">
+        <p>По вхождению слова</p>
+        <span>
+            <input type="text" name="word_to_search">
+            <input type="submit" value="Найти" class="button">
+        </span>
+    </form>
+    <hr>
+    <a href='/adding' class="button">Добавить пост</a>
+</main>
+</body>
+</html>

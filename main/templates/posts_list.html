@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Посты по запросу</title>
+    <link rel="stylesheet" href="/static/styles/style.css">
+</head>
+<body>
+<main>
+    </p><a href="/">Назад</a></p>
+    {% if word_to_search =='' %}
+        <h2>Все посты</h2>
+    {% else %}
+        <h2>Посты по запросу "{{word_to_search}}"</h2>
+    {% endif %}
+
+
+    {% for i in posts %}
+    <p><img src="{{i.picture}}" alt="Фото из поста {{i.id}}" width="100%"></p>
+    <p>{{i.description}}</p>
+    <hr>
+    {% endfor %}
+
+    </main>
+</body>
+</html>
