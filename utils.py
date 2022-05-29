@@ -1,5 +1,5 @@
 import json
-from config import POSTS_FILE
+from config import POSTS_FILE,UPLOAD_FOLDER
 from Post_class import Post
 
 
@@ -17,7 +17,7 @@ def get_objects_list(list_):
     return objects_list
 
 
-# загрузка файла постов и получение списка обьектов в однои блоке
+# загрузка файла постов и получение списка обьектов в одном блоке
 def load_data():
     try:
         data_from_json = load_posts_from_json(POSTS_FILE)
@@ -56,4 +56,9 @@ def check_format_file(filename):
     if filename.split('.')[-1] in allowed_extensions:
         return True
     return False
+
+# генерация адреса сохранения файла из UPLOAD_FOLDER
+def get_reference_to_save(filename):
+    file_reference = f'./{UPLOAD_FOLDER}/{filename}'
+    return file_reference
 
