@@ -5,8 +5,9 @@ from config import UPLOAD_FOLDER
 
 # создаем блюпринт и указываем источник шаблонов
 loader_blueprint = Blueprint('loader_blueprint', __name__, template_folder='..')
-#подключаемся к логеру из app.py
+# подключаемся к логеру из app.py
 new_logger = logging.getLogger('check_actions')
+
 
 # создаем вьюшку формы добавления поста
 @loader_blueprint.route('/adding')
@@ -40,7 +41,8 @@ def after_adding_page():
                            error_description='Пожалуйста, загрузите изображение с расширением .jpg, .png',
                            page_back='/adding')
 
-#открываем доступ папки для запросов с клиента
+
+# открываем доступ папки для запросов с клиента
 @loader_blueprint.route(f'/{UPLOAD_FOLDER}/<path:path>')
 def make_static_dir(path):
     return send_from_directory(UPLOAD_FOLDER, path)

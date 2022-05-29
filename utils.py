@@ -1,5 +1,5 @@
 import json
-from config import POSTS_FILE,UPLOAD_FOLDER
+from config import POSTS_FILE, UPLOAD_FOLDER
 from Post_class import Post
 
 
@@ -27,7 +27,7 @@ def load_data():
         return None
 
 
-#добавление нового поста в json
+# добавление нового поста в json
 def add_post_to_json(picture, description):
     try:
         previous_file = load_posts_from_json(POSTS_FILE)
@@ -39,8 +39,9 @@ def add_post_to_json(picture, description):
     except (json.JSONDecodeError, FileNotFoundError):
         return False
 
+
 # список постов по ключевому слову
-def get_posts_by_word(list_,word):
+def get_posts_by_word(list_, word):
     output_list = []
     if word.strip() != '':
         for i in list_:
@@ -52,13 +53,13 @@ def get_posts_by_word(list_,word):
 
 # проверка формата загружаемого файла
 def check_format_file(filename):
-    allowed_extensions = ['jpeg', 'png','jpg']
+    allowed_extensions = ['jpeg', 'png', 'jpg']
     if filename.split('.')[-1] in allowed_extensions:
         return True
     return False
+
 
 # генерация адреса сохранения файла из UPLOAD_FOLDER
 def get_reference_to_save(filename):
     file_reference = f'./{UPLOAD_FOLDER}/{filename}'
     return file_reference
-

@@ -10,10 +10,8 @@ def main():
     new_logger = logging.getLogger('check_actions')
     new_logger.setLevel(logging.INFO)
     file_handler = logging.FileHandler("log.txt", 'w')
-
     formatter_one = logging.Formatter("%(levelname)s : %(asctime)s : %(message)s")
     file_handler.setFormatter(formatter_one)
-
     new_logger.addHandler(file_handler)
 
     app = Flask(__name__)
